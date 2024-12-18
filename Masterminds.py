@@ -1,3 +1,4 @@
+
 import random
 Maximun_Length = 4
 Maximun_of_tries = 6
@@ -7,12 +8,12 @@ def Generator_Secret_Pass():
         return colors
 The_conbination= Generator_Secret_Pass()
 print(f"la combinaison secréte est {The_conbination}") 
-The_conbination= Generator_Secret_Pass()
-print(f"la combinaison secréte est {The_conbination}") 
 def anwsers_gamers():
     secret_code= input("entrez le code secret").split()
     if len(secret_code) != Maximun_Length:
        print("erreur le code fait plus de 4 couleurs")
+    elif secret_code== The_conbination:
+         print ("bravo tu a trouvé le code secret")
     else:
-        return secret_code
+        print ("ce n'est pas le bon code")
 anwsers_gamers()
