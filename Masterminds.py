@@ -20,4 +20,14 @@ def anwsers_gamers():
          print ("bravo tu a trouvé le code secret")
     else:
         print ("ce n'est pas le bon code")
+        solution_verif (secret_code, The_conbination)
+
+#new fonction 
+def solution_verif (secret_code, The_conbination):
+    box_good_place=0
+    for i in range (len(The_conbination)):
+        if secret_code [i]== The_conbination[i]:
+         box_good_place += 1         
+    return box_good_place
+
 anwsers_gamers()
