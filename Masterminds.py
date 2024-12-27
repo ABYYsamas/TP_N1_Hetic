@@ -1,4 +1,3 @@
-
 import random
 Maximun_Length = 4
 Maximun_of_tries = 10
@@ -8,6 +7,7 @@ def Generator_Secret_Pass():
         return colors
 The_conbination= Generator_Secret_Pass()
 print(f"la combinaison secréte est {The_conbination}") 
+
 def anwsers_gamers():
     secret_code= input("entrez le code secret").split()
     for color in secret_code:
@@ -22,12 +22,21 @@ def anwsers_gamers():
         print ("ce n'est pas le bon code")
         solution_verif (secret_code, The_conbination)
 
-#new fonction 
 def solution_verif (secret_code, The_conbination):
     box_good_place=0
+    box_bad_place=0
+    already_check=[]
     for i in range (len(The_conbination)):
         if secret_code [i]== The_conbination[i]:
-         box_good_place += 1         
-    return box_good_place
-
+         box_good_place += 1
+         already_check.append(i)
+    for i in range (len(The_conbination)):
+        if i not in already_check and The_conbination[i] in secret_code:
+         if secret_code.count(The_conbination[i]) > already_check.count(i):
+            box_bad_place += 1
+        already_check.append(i)
+         
+    print(f"{box_good_place} couleurs bien placée(s), {box_bad_place} couleurs mal placée(s).")
+ 
 anwsers_gamers()
+
