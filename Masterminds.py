@@ -7,15 +7,20 @@ def Generator_Secret_Pass():
     colors = random.choices(Authorized_color, k=Maximun_Length)
     return colors
 
+
+def instruction ():
+   print("\033[1mBienvenue dans le jeu Mastermind.\033[0m")
+   print("Votre mission si vous l'acceptez est de trouver \033[1mla combinaison secréte qui contient 4 couleurs\033[0m: 🔴 🟡 🟣 🔵. ")
+   print("Mais attention pour relever cet objectif \033[1mtu as  droit à seulement 10 essais \033")
+   print("Bonne chance nous comptons sur toi !")
+    
 def anwsers_gamers(The_conbination):
-    secret_code= input("entrez le code secret").split()
+    secret_code= input("entrez le code secret:").split()
     for color in secret_code:
          if not color.isalpha():
             print("Erreur veuillez entrer uniquement des caractéres.")
-            return False
     if len(secret_code) != Maximun_Length:
        print("erreur le code fait plus de 4 couleurs")
-       return False
     elif secret_code== The_conbination:
          print ("bravo tu a trouvé le code secret")
     else:
@@ -37,10 +42,11 @@ def solution_verif (secret_code, The_conbination):
             box_bad_place += 1
         already_check.append(i)
          
-    print(f"{box_good_place} couleurs bien placée(s), {box_bad_place} couleurs mal placée(s).")
+    print(f"{box_good_place} couleurs bien placée(s)✅, {box_bad_place} couleurs mal placée(s)❌.")
  
 
 def Main_game():
+    instruction()
     The_conbination = Generator_Secret_Pass()
     number_of_tries = 0
     Maximun_of_tries = 10
@@ -51,6 +57,6 @@ def Main_game():
             break
         number_of_tries += 1
     if not game_won:
-        print("Tu as perdu. Retente ta chance!")
+        print(f"\033[1méchec de la mission, retente ta chance ! le code était {The_conbination} \033")
 
 Main_game()
