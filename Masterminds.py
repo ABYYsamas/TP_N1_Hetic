@@ -1,10 +1,10 @@
 import random
 
-Maximun_Length = 4
+Maximum_Length = 4
 Authorized_color = ["rouge", "violet", "bleu", "jaune"]
 
 def Generator_Secret_Pass():
-    colors = random.choices(Authorized_color, k=Maximun_Length)
+    colors = random.choices(Authorized_color, k=Maximum_Length)
     return colors
 
 
@@ -14,31 +14,31 @@ def instruction ():
    print("Mais attention pour relever cet objectif \033[1mtu as  droit à seulement 10 essais \033")
    print("Bonne chance nous comptons sur toi !")
     
-def anwsers_gamers(The_conbination):
+def anwsers_gamers(The_combination):
     secret_code= input("entrez le code secret:").split()
     for color in secret_code:
          if not color.isalpha():
             print("Erreur veuillez entrer uniquement des caractéres.")
-    if len(secret_code) != Maximun_Length:
+    if len(secret_code) != Maximum_Length:
        print("erreur le code fait plus de 4 couleurs")
-    elif secret_code== The_conbination:
+    elif secret_code== The_combination:
          print ("bravo tu a trouvé le code secret")
     else:
         print ("ce n'est pas le bon code")
-        solution_verif (secret_code, The_conbination)
+        solution_verif (secret_code, The_combination)
 
 
-def solution_verif (secret_code, The_conbination):
+def solution_verif (secret_code, The_combination):
     box_good_place=0
     box_bad_place=0
     already_check=[]
-    for i in range (len(The_conbination)):
-        if secret_code [i]== The_conbination[i]:
+    for i in range (len(The_combination)):
+        if secret_code [i]== The_combination[i]:
          box_good_place += 1
          already_check.append(i)
-    for i in range (len(The_conbination)):
-        if i not in already_check and The_conbination[i] in secret_code:
-         if secret_code.count(The_conbination[i]) > already_check.count(i):
+    for i in range (len(The_combination)):
+        if i not in already_check and The_combination[i] in secret_code:
+         if secret_code.count(The_combination[i]) > already_check.count(i):
             box_bad_place += 1
         already_check.append(i)
          
@@ -47,16 +47,16 @@ def solution_verif (secret_code, The_conbination):
 
 def Main_game():
     instruction()
-    The_conbination = Generator_Secret_Pass()
+    The_combination = Generator_Secret_Pass()
     number_of_tries = 0
-    Maximun_of_tries = 10
+    Maximum_of_tries = 10
     game_won = False
-    while number_of_tries < Maximun_of_tries:
-        if anwsers_gamers(The_conbination):
+    while number_of_tries < Maximum_of_tries:
+        if anwsers_gamers(The_combination):
             game_won = True
             break
         number_of_tries += 1
     if not game_won:
-        print(f"\033[1méchec de la mission, retente ta chance ! le code était {The_conbination} \033")
+        print(f"\033[1méchec de la mission, retente ta chance ! le code était {The_combination} \033")
 
 Main_game()
