@@ -20,7 +20,7 @@ def anwsers_gamers(The_combination):
          if not color.isalpha():
             print("Erreur veuillez entrer uniquement des caractéres.")
     if len(secret_code) != Maximum_Length:
-       print("erreur le code fait plus de 4 couleurs")
+       print("erreur le code ne fait pas 4 couleurs")
     elif secret_code== The_combination:
          print ("bravo tu a trouvé le code secret")
     else:
